@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/htmx.org@1.9.10"
+        integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+        crossorigin="anonymous"></script>
+    <title>OOB Swap</title>
+    <style>
+        .grow {
+            transition: all 1s ease-in;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button hx-post="http://localhost:1330/oob" hx-target="#mainTarget">
+        Load Content
+    </button>
+
+    <div id="mainTarget">
+        Main target
+    </div>
+
+    <div id="target3">Some Target</div>
+
+    <div id="target2"></div>
+
+</body>
+
+</html>

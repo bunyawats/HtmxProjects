@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/htmx.org@1.9.10"
+        integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+        crossorigin="anonymous"></script>
+    <title>Swao Style</title>
+    <style>
+        .grow {
+            transition: all 1s ease-in;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button hx-post="http://localhost:1330/seleting" hx-target="#destination" hx-select="#target2">
+        Load Content
+    </button>
+
+    <div id="destinationParent">
+        Parent
+        <div id="destination">
+            Destination
+            <div id="destinationChild">
+                Child
+            </div>
+        </div>
+    </div>
+
+</body>
