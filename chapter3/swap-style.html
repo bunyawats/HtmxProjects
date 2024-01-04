@@ -17,15 +17,15 @@
 
 <body>
 
-    <button hx-post="http://localhost:1330/seleting" hx-target="#destination" hx-select="#target2">
+    <button hx-post="http://localhost:1330/message" hx-target="#destination" hx-swap="afterend">
         Load Content
     </button>
 
-    <div id="destinationParent">
+    <div id="destinationParent" style="background-color: red;">
         Parent
-        <div id="destination">
+        <div id="destination" style="background-color: green;">
             Destination
-            <div id="destinationChild">
+            <div id="destinationChild" style="background-color: blue;">
                 Child
             </div>
         </div>

@@ -1,5 +1,11 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const fileUpload = require('express-fileupload');
+const app = express();
+
+// Require the upload middleware
+const upload = require('./upload');
+
+module.exports = upload;
 
 var cors = require('cors')
 
@@ -17,6 +23,17 @@ app.post('/message', function (req, res) {
 
 })
 
+
+app.post('/upload', upload.single('file'), async (req, res) => {
+
+   const filePath =  req.file.path;
+   console.log(`file path: ${filePath}`);
+
+   setTimeout(() => {
+      res.send(`<b> Upload Successful</b>: ${filePath}`);
+   }, 500);
+
+})
 
 app.post('/oob', async (req, res) => {
 
