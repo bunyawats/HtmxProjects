@@ -11,15 +11,19 @@ var cors = require('cors')
 
 app.use(cors())
 
-app.get('/', function (req, res) {
+app.get('/', async (req, res) => {
    res.send('<h2>Welcome to the Node Hypermedia API</h2>');
 })
 
-app.post('/message', function (req, res) {
+app.post('/message', async (req, res) => {
 
-   setTimeout(() => {
-      res.send(`<div><h3>Hello World</h3></div>`);
-   }, 1000);
+   res.set({
+      "Last-Modified": "Wednesday, 20 Sept 2023",
+   })
+
+   console.log(req.body);
+
+   res.send(`<div><h3>Hello World</h3></div>`);
 
 })
 
@@ -66,6 +70,28 @@ app.post('/bigbox', function (req, res) {
    res.send(`<div id="growing-box" class="grow"
    style="height: 300px; width: 300px;  background-color: blue;" >
    Small Box
+</div>`);
+
+})
+
+app.post('/htmx', function (req, res) {
+
+   res.send(`<div >
+   <h3> I am load HTMX Stuff</h3>
+   <button type="button"
+   hx-get="http://localhost:1330" 
+   hx-target="#destination">Load Root</button>
+</div>`);
+
+})
+
+app.post('/script', function (req, res) {
+
+   res.send(`<div >
+   <h3> I am load a script</h3>
+   <script>
+      console.log("Hello World");
+   </script>
 </div>`);
 
 })
