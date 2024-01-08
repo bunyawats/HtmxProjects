@@ -11,17 +11,24 @@ var cors = require('cors')
 
 app.use(cors())
 
+app.set('etag', 'strong');  
+
 app.get('/', async (req, res) => {
    res.send('<h2>Welcome to the Node Hypermedia API</h2>');
 })
 
+
+app.get('/message', async (req, res) => {
+
+   res.set('Last-Modified', new Date());
+
+   console.log("Call message");
+
+   res.send(`<div><h3>Hello World</h3></div>`);
+
+})
+
 app.post('/message', async (req, res) => {
-
-   res.set({
-      "Last-Modified": "Wednesday, 20 Sept 2023",
-   })
-
-   console.log(req.body);
 
    res.send(`<div><h3>Hello World</h3></div>`);
 
