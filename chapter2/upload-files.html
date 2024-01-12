@@ -8,17 +8,65 @@
         integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
         crossorigin="anonymous"></script>
     <title>Upload File</title>
+    <style>
+        input[type="file"] {
+            display: none;
+        }
+        .custom-file-upload {
+            border: 1px solid #ccc;
+            display: inline-block;
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+
+        .button {
+            background-color: #04AA6D;
+            border: none;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+        }
+
+        .button1 {border-radius: 2px;}
+        .button2 {border-radius: 4px;}
+        .button3 {border-radius: 8px;}
+        .button4 {border-radius: 12px;}
+        .button5 {border-radius: 50%;}
+
+    </style>
 </head>
 
 <body>
 
-    <form>
-        <input type="file" name="file" />
+    <form id="form-a">
+        <!-- <input type="file" name="file" /> -->
+        <label class="custom-file-upload" >
+            <input type="file" name="file"/>
+            <i class="fa fa-cloud-upload"></i> Custom Upload
+        </label>
         <br/>
         <br />
-        <button hx-post="http://localhost:1330/upload"  hx-encoding="multipart/form-data" hx-target="#respond">
-            Upload File
+        <button 
+            hx-post="http://localhost:1330/upload"  
+            hx-encoding="multipart/form-data" 
+            hx-target="#respond"
+            class="button button5"
+            >
+        Upload File
         </button>
+        <!-- <div   
+            hx-post="http://localhost:1330/upload"  
+            hx-encoding="multipart/form-data" 
+            hx-trigger="click" 
+            form="form-a"
+            hx-target="#respond" 
+            clase="button">
+            Upload File
+        </div> -->
     </form>
     <br />
     <br />
